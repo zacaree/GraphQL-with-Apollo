@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -18,8 +13,19 @@
   color: white;
 }
 
+.newPost {
+  z-index: 2;
+  margin-bottom: 4rem;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 40vmin;
+}
+
 ul {
   list-style: none;
+  padding: 0;
   z-index: 2;
 }
 
