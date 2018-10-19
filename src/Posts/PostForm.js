@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 
-
-
 export default class PostForm extends Component {
   state = {
-    title: '',
-    body: ''
+    id: this.props.post.id || '',
+    title: this.props.post.title || '',
+    body: this.props.post.body || ''
   }
 
   handleInput = e => {
@@ -25,6 +24,7 @@ export default class PostForm extends Component {
         onSubmit({
           // These variables have a "$" in the gql mutation but we don't use the "$" here.
           variables: {
+            id: this.state.id,
             title: this.state.title,
             body: this.state.body
           }
@@ -54,7 +54,15 @@ export default class PostForm extends Component {
       </form>
     )
   }
+
   static propTypes = {
-    onSubmit: PropTypes.func.isRequired
-  }
+    onSubmit: PropTypes.func.isRequired,
+    post: PropTypes.object
+  };
+
+  // This says, hey if there's no post prop coming in to this component, then set post to an empty object.
+  static defaultProps = {
+    post: {}
+  };
+
 }
