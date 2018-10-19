@@ -1,20 +1,19 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
-import PostForm from './PostForm'
+import PostForm from './PostForm';
 
-export default class NewPost extends Component {
+export default class UpdatePost extends Component {
   render() {
     return (
-      <Fragment>
-        <h3>Create a Post</h3>
+      <div>
         <Mutation mutation={NEW_POST}>
           {/* The function "createPost" is being passed into this function so that it can be used in the form. */}
           {createPost => (
             <PostForm onSubmit={createPost} />
           )}
         </Mutation>
-      </Fragment>
+      </div>
     )
   }
 }

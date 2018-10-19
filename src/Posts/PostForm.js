@@ -1,4 +1,8 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
+
+
+
 
 export default class PostForm extends Component {
   state = {
@@ -19,7 +23,7 @@ export default class PostForm extends Component {
       <form onSubmit={(e) => {
         e.preventDefault();
         onSubmit({
-          // These variables have a "$" below but we don't want that here.
+          // These variables have a "$" in the gql mutation but we don't use the "$" here.
           variables: {
             title: this.state.title,
             body: this.state.body
@@ -49,5 +53,8 @@ export default class PostForm extends Component {
         <button>Submit</button>
       </form>
     )
+  }
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired
   }
 }
