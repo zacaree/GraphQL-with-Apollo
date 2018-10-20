@@ -17,8 +17,8 @@ export default class Post extends Component {
                 <h1>{post.title}</h1>
                 <p>{post.body}</p>
               </section>
-              <section>
-                <h3>Edit Post</h3>
+              <section className="section__editPost">
+                <h4>Edit Post</h4>
                 <UpdatePost post={post} />
               </section>
             </div>

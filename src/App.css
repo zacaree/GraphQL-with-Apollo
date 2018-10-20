@@ -1,37 +1,59 @@
-.App {
-  text-align: center;
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: #eee;
+  color: #282c34;
+  font-size: 20px;
+}
+
+h1 { font-size: 6rem }
+h2 { font-size: 5rem }
+h3 { font-size: 4rem }
+h4 { font-size: 3rem }
+h5 { font-size: 2rem }
+h6 { font-size: 1rem }
+
+a {
+  color: #282c34;
 }
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  height: 80px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 2rem;
-}
-
-.newPost {
-  z-index: 2;
-  margin-bottom: 4rem;
 }
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+  height: 6rem;
+  margin-top: 4px;
 }
+
+.newPostLink {
+  color: #61dafb;
+  padding: 2rem;
+  text-decoration: none;
+}
+
+
+
+main {
+  max-width: 700px;
+  margin: 3rem auto
+}
+
 
 ul {
   list-style: none;
   padding: 0;
   z-index: 2;
-}
-
-a {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -46,19 +68,41 @@ a {
 
 
 form {
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 100%;
 }
 
 input, textarea, button {
-  padding: .7rem;
-  margin: .3rem 0;
+  padding: 1.8rem 1.4rem;
+  margin: .6rem 0;
   border-radius: 3px;
   border: none;
+  font-size: 1.3rem;
 }
 
 textarea {
-  height: 4rem;
+  height: 16rem;
+}
+
+button {
+  background-color: #eee;
+  border: 1px solid #282c34;
+  width: 30%;
+}
+
+button:hover {
+  background-color: #282c34;
+  color: #eee;
+}
+
+
+
+
+.section__editPost {
+  margin-top: 16rem;
+}
+
+.section__editPost h4:first-child {
+  margin-bottom: 1.2rem;
 }
