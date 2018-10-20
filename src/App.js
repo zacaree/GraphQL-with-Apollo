@@ -19,7 +19,7 @@ const client = new ApolloClient({
   uri: 'https://api-useast.graphcms.com/v1/cjnd6rhce5tvu01dgef5a6juy/master',
   clientState: {
     defaults: defaultState,
-    resolvers: {}
+    resolvers: {} // We aren't using this but it is required that we at least name it.
   }
 });
 
