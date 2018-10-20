@@ -18,7 +18,8 @@ const defaultState = {
 const client = new ApolloClient({
   uri: 'https://api-useast.graphcms.com/v1/cjnd6rhce5tvu01dgef5a6juy/master',
   clientState: {
-    defaults: defaultState
+    defaults: defaultState,
+    resolvers: {}
   }
 });
 
