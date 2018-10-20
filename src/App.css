@@ -1,7 +1,9 @@
 
-html {
-  font-size: 10px;
-}
+/* ****** */
+/* Global */
+/* ****** */
+
+html { font-size: 10px }
 
 body {
   background-color: #eee;
@@ -16,9 +18,13 @@ h4 { font-size: 3rem }
 h5 { font-size: 2rem }
 h6 { font-size: 1rem }
 
-a {
-  color: #282c34;
-}
+a { color: #282c34 }
+
+
+
+/* ****** */
+/* Header */
+/* ****** */
 
 .App-header {
   background-color: #282c34;
@@ -26,7 +32,6 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: calc(10px + 2vmin);
   color: white;
 }
 
@@ -34,26 +39,6 @@ a {
   animation: App-logo-spin infinite 20s linear;
   height: 6rem;
   margin-top: 4px;
-}
-
-.newPostLink {
-  color: #61dafb;
-  padding: 2rem;
-  text-decoration: none;
-}
-
-
-
-main {
-  max-width: 700px;
-  margin: 3rem auto
-}
-
-
-ul {
-  list-style: none;
-  padding: 0;
-  z-index: 2;
 }
 
 @keyframes App-logo-spin {
@@ -65,7 +50,30 @@ ul {
   }
 }
 
+.App-header a:last-of-type {
+  color: #61dafb;
+  margin-top: -4px;
+  padding: 2rem;
+  text-decoration: none;
+}
 
+
+
+/* **** */
+/* Main */
+/* **** */
+
+main {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  z-index: 2;
+}
 
 form {
   display: flex;
@@ -95,9 +103,6 @@ button:hover {
   background-color: #282c34;
   color: #eee;
 }
-
-
-
 
 .section__editPost {
   margin-top: 16rem;
