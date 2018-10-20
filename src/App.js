@@ -8,11 +8,19 @@ import NewPost from './Posts/NewPost'
 import logo from './logo.svg';
 import './App.css';
 
+
+const defaultState = {
+  isEditMode: false
+};
+
+
 // This defines the endpoint to our GraphQL server. (It's the location of our API)
 const client = new ApolloClient({
-  uri: 'https://api-useast.graphcms.com/v1/cjnd6rhce5tvu01dgef5a6juy/master'
+  uri: 'https://api-useast.graphcms.com/v1/cjnd6rhce5tvu01dgef5a6juy/master',
+  clientState: {
+    defaults: defaultState
+  }
 });
-
 
 
 class App extends Component {
