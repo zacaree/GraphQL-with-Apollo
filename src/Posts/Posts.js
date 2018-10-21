@@ -9,7 +9,7 @@ export default class Posts extends Component {
     return (
       <Fragment>
         <h1>Posts</h1>
-        <ul>
+        <ol>
           {/* Here's the data from POSTS_QUERY in use via a render prop */}
           <Query query={POSTS_QUERY}>
             {({ loading, data }) => {
@@ -24,7 +24,7 @@ export default class Posts extends Component {
               ));
             }}
           </Query>
-        </ul>
+        </ol>
       </Fragment>
     )
   }
@@ -34,7 +34,7 @@ export default class Posts extends Component {
 // Writing a query
 const POSTS_QUERY = gql`
   query allPosts {
-    posts(orderBy: createdAt_DESC, first: 3) {
+    posts(orderBy: createdAt_DESC, first: 5) {
       id
       title
       body

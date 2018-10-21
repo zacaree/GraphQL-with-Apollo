@@ -70,8 +70,10 @@ main {
 ul {
   list-style: none;
   padding: 0;
-  z-index: 2;
 }
+  
+ol { padding-left: 2.5rem }
+
 
 main a { 
   color: #282c34; 
