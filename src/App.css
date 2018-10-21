@@ -76,6 +76,8 @@ ul {
 main a { 
   color: #282c34; 
   text-decoration: none;
+  cursor: pointer;
+  user-select: none;
 }
 main a:hover { color: #61dafb }
 

@@ -10,7 +10,10 @@ export default class UpdatePost extends Component {
       <div>
         <Mutation mutation={UPDATE_POST}>
           {/* The function "updatePost" is being passed into this function as an argument so that it can be used in the form. */}
-          {updatePost => <PostForm post={post} onSubmit={updatePost} />}
+          {(updatePost, result) => {
+            const onSuccess = () => result.client.writeData({ data: { isEditMode: false }});
+            return <PostForm post={post} onSuccess={onSuccess} onSubmit={updatePost} />
+          }}
         </Mutation>
       </div>
     )

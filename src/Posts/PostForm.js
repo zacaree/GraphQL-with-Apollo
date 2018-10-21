@@ -14,7 +14,7 @@ export default class PostForm extends Component {
   }
 
   render() {
-    const { onSubmit } = this.props;
+    const { onSubmit, onSuccess } = this.props;
     const { title, body } = this.state;
 
     return (
@@ -30,10 +30,7 @@ export default class PostForm extends Component {
           }
         })
           .then(() => {
-            this.setState({
-              title: '',
-              body: ''
-            });
+            onSuccess();
           }).catch(e => console.log(e));
       }}>
         <input
@@ -57,12 +54,14 @@ export default class PostForm extends Component {
 
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    onSuccess: PropTypes.func,
     post: PropTypes.object
   };
 
   // This says, hey if there's no post prop coming in to this component, then set post to an empty object.
   static defaultProps = {
-    post: {}
+    post: {},
+    onSuccess: () => null
   };
 
 }

@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import ApolloConsumer from 'react-apollo';
+import {ApolloConsumer} from 'react-apollo';
 
 export default class EditMode extends Component {
   render() {
+    const {isEditMode} = this.props;
     return (
       <ApolloConsumer>
-        <button>Toggle Edit Mode</button>
+        {client => (
+          <a
+            onClick={() => {
+              client.writeData({ data: { isEditMode: !isEditMode }});
+            }}
+          >
+            ✏️ Toggle Edit Mode
+          </a>
+        )}
       </ApolloConsumer>
     )
   }

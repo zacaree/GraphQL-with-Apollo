@@ -14,7 +14,7 @@ export default class Post extends Component {
           const { post, isEditMode } = data;
           return (
             <div>
-              {/* <EditMode /> */}
+              <EditMode isEditMode={isEditMode} />
               {isEditMode ? (
                 <section className="section__editPost">
                   <h4>Edit Post</h4>

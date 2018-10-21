@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import Post from './Posts/Post'
-import Posts from './Posts/Posts'
-import NewPost from './Posts/NewPost'
+import Post from './Posts/Post';
+import Posts from './Posts/Posts';
+import NewPost from './Posts/NewPost';
 import logo from './logo.svg';
 import './App.css';
 
