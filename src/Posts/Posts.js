@@ -34,7 +34,7 @@ export default class Posts extends Component {
 // Writing a query
 const POSTS_QUERY = gql`
   query allPosts {
-    posts {
+    posts(orderBy: createdAt_DESC, first: 3) {
       id
       title
       body
