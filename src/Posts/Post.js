@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import UpdatePost from './UpdatePost';
 import EditMode from './EditMode';
@@ -24,6 +24,53 @@ export default class Post extends Component {
                   <section>
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
+                    {/* Optimistic UI Example Below */}
+                    <Mutation
+                      // Here's our standatd mutation that talks to the GraphQL server.
+                      mutation={UPDATE_POST}
+                      variables={{
+                        id: post.id,
+                        check: !post.check
+                      }}
+                      // The optimistic response is the response you're expecting to get back from the above mutation.
+                      // You anticipate so that you can display the changes before the response comes back from the server.
+                      optimisticResponse={{
+                        __typename: 'Mutation',
+                        updatePost: {
+                          __typename: 'Post',
+                          check: !post.check
+                        }
+                      }}
+                      update={(cache, { data: { updatePost } }) => {
+                        // Here we're reading the cache and getting the current data from the cache.
+                        const data = cache.readQuery({
+                          query: POST_QUERY,
+                          variables: {
+                            id: post.id
+                          }
+                        });
+                        // Here we're modifying the value of the checkbox,
+                        // This value is coming into this function as an argument from updatePost above (from the optimisticResponse object).
+                        data.post.check = updatePost.check;
+                        // Now we need to write this current data into our Apollo cache
+                        cache.writeQuery({
+                          query: POST_QUERY,
+                          data: {
+                            ...data,
+                            post: data.post,
+                          }
+                        })
+                      }}
+                    >
+                      {updatePost => (
+                        <input
+                          style={{ zoom: '4' }}
+                          type="checkbox"
+                          checked={post.check}
+                          onChange={updatePost}
+                        />
+                      )}
+                    </Mutation>
                   </section>
                 )}
             </div>
@@ -42,7 +89,27 @@ const POST_QUERY = gql`
       id
       title
       body
+      check
     }
     isEditMode @client
   }
 `;
+
+const UPDATE_POST = gql`
+  mutation updatePost($id: ID!, $check: Boolean) {
+    updatePost(
+      where: {
+        id: $id
+      }
+      data: {
+        check: $check
+      }
+    ) {
+      # title
+      # body
+      # id
+      check
+    }
+  }
+`;
+
