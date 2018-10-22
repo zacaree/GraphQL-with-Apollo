@@ -17,7 +17,7 @@ export default class Post extends Component {
               <EditMode isEditMode={isEditMode} />
               {isEditMode ? (
                 <section className="section__editPost">
-                  <h4>Edit Post</h4>
+                  <h1>Edit Post</h1>
                   <UpdatePost post={post} />
                 </section>
               ) : (
@@ -25,7 +25,7 @@ export default class Post extends Component {
                     <h1>{post.title}</h1>
                     <p>{post.body}</p>
                   </section>
-              )}
+                )}
             </div>
           )
         }}

@@ -9,14 +9,14 @@ export default class Posts extends Component {
     return (
       <Fragment>
         <h1>Posts</h1>
-        <ol>
-          {/* Here's the data from POSTS_QUERY in use via a render prop */}
-          <Query query={POSTS_QUERY}>
-            {({ loading, data, fetchMore }) => {
-              if (loading) return 'Loading...';
-              const { posts } = data;
-              return (
-                <Fragment>
+        {/* Here's the data from POSTS_QUERY in use via a render prop */}
+        <Query query={POSTS_QUERY}>
+          {({ loading, data, fetchMore }) => {
+            if (loading) return 'Loading...';
+            const { posts } = data;
+            return (
+              <Fragment>
+                <ol>
                   {posts.map(post => (
                     <li key={post.id}>
                       <Link to={`/post/${post.id}`}>
@@ -24,22 +24,22 @@ export default class Posts extends Component {
                       </Link>
                     </li>
                   ))}
-                  <button onClick={() => fetchMore({
-                    variables: {
-                      skip: posts.length
-                    },
-                    updateQuery: (prev, { fetchMoreResult }) => {
-                      if (!fetchMoreResult) return prev;
-                      return Object.assign({}, prev, {
-                        posts: [...prev.posts, ...fetchMoreResult.posts]
-                      });
-                    }
-                  })}>Load More</button>
-                </Fragment>
-              )
-            }}
-          </Query>
-        </ol>
+                </ol>
+                <button onClick={() => fetchMore({
+                  variables: {
+                    skip: posts.length
+                  },
+                  updateQuery: (prev, { fetchMoreResult }) => {
+                    if (!fetchMoreResult) return prev;
+                    return Object.assign({}, prev, {
+                      posts: [...prev.posts, ...fetchMoreResult.posts]
+                    });
+                  }
+                })}>Load More</button>
+              </Fragment>
+            )
+          }}
+        </Query>
       </Fragment>
     )
   }

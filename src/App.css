@@ -8,7 +8,7 @@ html { font-size: 10px }
 body {
   background-color: #eee;
   color: #282c34;
-  font-size: 20px;
+  font-size: 2rem;
 }
 
 h1 { font-size: 6rem }
@@ -90,7 +90,7 @@ form {
   width: 100%;
 }
 
-input, textarea, button {
+input, textarea {
   padding: 1.8rem 1.4rem;
   margin: .6rem 0;
   border-radius: 3px;
@@ -103,20 +103,16 @@ textarea {
 }
 
 button {
+  display: inline;
+  max-width: 20%;
+  margin: .6rem 0;
+  padding: 1rem 3rem;
   background-color: #eee;
   border: 1px solid #282c34;
-  width: 30%;
+  border-radius: 3px;
+  font-size: 1.4rem;
 }
-
 button:hover {
   background-color: #282c34;
   color: #eee;
-}
-
-.section__editPost {
-  margin-top: 16rem;
-}
-
-.section__editPost h4:first-child {
-  margin-bottom: 1.2rem;
 }

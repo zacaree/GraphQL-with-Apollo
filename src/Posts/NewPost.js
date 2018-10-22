@@ -7,7 +7,7 @@ export default class NewPost extends Component {
   render() {
     return (
       <Fragment>
-        <h2>Create a new post</h2>
+        <h1>Create a new post</h1>
         <Mutation mutation={NEW_POST}>
           {/* The function "createPost" is being passed into this function so that it can be used in the form. */}
           {createPost => (
