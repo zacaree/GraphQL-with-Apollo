@@ -116,3 +116,12 @@ button:hover {
   background-color: #282c34;
   color: #eee;
 }
+
+label {
+  display: block;
+  margin: 10rem 0;
+  user-select: none;
+}
+label input {
+  margin-right: 1.2rem;
+}
